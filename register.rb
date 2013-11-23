@@ -3,7 +3,7 @@ require 'pry'
 require 'date'
 
 class Register
-	attr_reader :products, :item, :invoice, :transactions
+	attr_reader :products, :item, :invoice, :transactions, :gross_sales
 	def initialize
 		@products = {}
 		@invoice = {}
@@ -86,12 +86,11 @@ class Register
 	end
 
 	def get_daily_sales(date)
-		gross_sales = 0
+		@gross_sales = 0
 		@transactions[date].each do |key,value|
 			value.each do |index|
-				
-			end	
+				@gross_sales += (index[2].to_f*index[3].to_f)
+			end
 		end
 	end
-
 end

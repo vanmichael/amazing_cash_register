@@ -24,6 +24,4 @@ cashier.add_to_csv
 cashier.load_invoices('invoices.csv')
 puts cashier.transactions
 cashier.get_daily_sales("20131122")
-
-
-
+puts cashier.gross_sales
